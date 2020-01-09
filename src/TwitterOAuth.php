@@ -224,6 +224,20 @@ class TwitterOAuth extends Config
     }
 
     /**
+     * Make POST requests to the Upload API.
+     * 
+     * @param string $path
+     * @param array  $parameters
+     * @param bool   $json
+     *
+     * @return array|object
+     */
+    public function postMedia($path, array $parameters = [], $json = false)
+    {
+        return $this->http('POST', self::UPLOAD_HOST, $path, $parameters, $json);
+    }
+    
+    /**
      * Make DELETE requests to the API.
      *
      * @param string $path
